@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-sm-4 offset-sm-4">
+    <div class="card mt-5">
+      <div class="card-body pb-5">
+        <h2 class="text-center mt-3">新規登録</h2>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <div class="field mt-3">
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", placeholder: "お名前" %>
+          </div>
+
+          <div class="field mt-3">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "メールアドレス" %>
+          </div>
+
+          <div class="field mt-3">
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "パスワード(6~16字)" %>
+          </div>
+
+          <div class="field mt-3">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "パスワード(確認用)" %>
+          </div>
+
+          <div class="actions mt-4">
+            <%= f.submit "登録", class: "btn btn-primary form-control" %>
+          </div>
+        <% end %>
+        <div class="text-center mt-2">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
