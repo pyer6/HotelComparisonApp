@@ -1,8 +1,9 @@
 class TopsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+
   require 'will_paginate/array'
 
   def index
-    # @hotels = search_hotel
     @keyword = params[:keyword]
     @hotels = search_hotel.paginate(page: params[:page], per_page: 10)
   end

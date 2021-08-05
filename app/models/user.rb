@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :name, presence: true
+  validates :password_confirmation, presence: true
 
   def update_without_current_password(params, *options)
     if params[:password].blank? && params[:password_confirmation].blank? 
