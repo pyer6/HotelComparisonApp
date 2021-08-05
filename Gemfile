@@ -35,6 +35,13 @@ gem 'will_paginate-bootstrap4'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+group :test do
+  gem 'capybara', '~> 3.28'
+  gem 'selenium-webdriver', '~> 3.142'
+  gem 'webdrivers', '~> 4.1'
+	gem 'rexml'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
