@@ -19,8 +19,36 @@
 
   <div>
     <% @hotels.each do |hotel| %>
+      
       <div>
-        <%= hotel[:ホテル名] %>
+        <div id="<%= hotel[:hotel_no] %>" >
+          <%= render "hotels/bookmark", hotel: hotel, hotel_no: hotel[:hotel_no] %>
+        </div>
+        <div><%= link_to hotel[:name], hotel[:information_url], target: :_blank %></div>
+
+        <div><%= link_to image_tag(hotel[:hotel_image_url], size: "75x45") %></div>
+
+        <div><%= link_to "施設情報ページ", hotel[:information_url], class: "btn btn-default btn-sm bg-secondary text-white", target: :_blank %></div>
+
+        <div><%= link_to "宿泊プラン一覧ページ", hotel[:plan_list_url], class: "btn btn-default btn-sm bg-secondary text-white", target: :_blank %></div>
+
+        <div>
+          <%= link_to hotel[:review_url], class: "btn btn-default btn-sm bg-secondary text-white", target: :_blank do %>
+            お客様の声 (<%= hotel[:review_count] %>) <%= hotel[:review_average] %>/5.00
+          <% end %>
+        </div>
+        
+        <div>〒<%= hotel[:postal_code] %> <%= hotel[:address1] %><%= hotel[:address2] %></div>
+        
+        <div>℡ <%= hotel[:telephone_no] %></div>
+        
+        <div>最寄り駅: <%= hotel[:nearest_station] %></div>
+        
+        <div>駐車場: <%= hotel[:parking_information] %></div>
+        
+        <div>アクセス: <%= hotel[:access] %></div>
+        
+        <hr>
       </div>
     <% end %>
   </div>

@@ -26,19 +26,21 @@ class TopsController < ApplicationController
       if response["hotels"]
         response["hotels"].each do |hotel|
           hotels << {
-            ホテル名: hotel[0]["hotelBasicInfo"]["hotelName"],
-            施設情報ページ: hotel[0]["hotelBasicInfo"]["hotelInformationUrl"],
-            宿泊プラン一覧ページ: hotel[0]["hotelBasicInfo"]["planListUrl"],
-            レビュー数: hotel[0]["hotelBasicInfo"]["reviewCount"],
-            総合評価: hotel[0]["hotelBasicInfo"]["reviewAverage"],
-            お客様の声ページ: hotel[0]["hotelBasicInfo"]["reviewUrl"],
-            郵便番号: hotel[0]["hotelBasicInfo"]["postalCode"],
-            住所1: hotel[0]["hotelBasicInfo"]["address1"],
-            住所2: hotel[0]["hotelBasicInfo"]["address2"],
-            電話番号: hotel[0]["hotelBasicInfo"]["telephoneNo"],
-            最寄駅: hotel[0]["hotelBasicInfo"]["nearestStation"],
-            駐車場の有無: hotel[0]["hotelBasicInfo"]["parkingInformation"],
-            アクセス方法: hotel[0]["hotelBasicInfo"]["access"].gsub(/　/," ").gsub(" ",""),
+            hotel_no: hotel[0]["hotelBasicInfo"]["hotelNo"],
+            name: hotel[0]["hotelBasicInfo"]["hotelName"],
+            information_url: hotel[0]["hotelBasicInfo"]["hotelInformationUrl"],
+            plan_list_url: hotel[0]["hotelBasicInfo"]["planListUrl"],
+            review_count: hotel[0]["hotelBasicInfo"]["reviewCount"],
+            review_average: hotel[0]["hotelBasicInfo"]["reviewAverage"],
+            review_url: hotel[0]["hotelBasicInfo"]["reviewUrl"],
+            postal_code: hotel[0]["hotelBasicInfo"]["postalCode"],
+            address1: hotel[0]["hotelBasicInfo"]["address1"],
+            address2: hotel[0]["hotelBasicInfo"]["address2"],
+            telephone_no: hotel[0]["hotelBasicInfo"]["telephoneNo"],
+            nearest_station: hotel[0]["hotelBasicInfo"]["nearestStation"],
+            parking_information: hotel[0]["hotelBasicInfo"]["parkingInformation"],
+            access: hotel[0]["hotelBasicInfo"]["access"].gsub(/　/," "),
+            hotel_image_url: hotel[0]["hotelBasicInfo"]["hotelImageUrl"],
           }
         end
       end

@@ -1,0 +1,9 @@
+<% if hotel_info = current_user.hotels.find_by(hotel_no: hotel_no).presence %>
+	<%= link_to hotel_path(hotel_info.id), method: :delete, class: "", remote: true do %>
+		<i class="fas fa-bookmark fa-lg like-color"></i>
+	<% end %>
+<% else %>
+	<%= link_to hotels_path(hotel: hotel), method: :post, class: "", remote: true do %>
+		<i class="far fa-bookmark fa-lg unlike-color"></i>
+	<% end %>
+<% end %>

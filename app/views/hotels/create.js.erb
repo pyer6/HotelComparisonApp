@@ -1,0 +1,1 @@
+document.getElementById('<%= @hotel_no %>').innerHTML = '<%= j(render "hotels/bookmark", hotel: @hotel.attributes, hotel_no: @hotel_no) %>'
