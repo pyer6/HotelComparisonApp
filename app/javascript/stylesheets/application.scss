@@ -1,8 +1,44 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-// link_to
-.link {
-  text-decoration: none;
-  color: white ; 
+$main-color: #28a745;
+
+// ホテルの画像
+.img_hotel {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+// ホテル名
+.title_color:hover {
+  opacity:0.5;
+}
+
+.no_underline {
+  text-decoration:none;
+}
+
+// ブックマークアイコン
+.bookmark_color {
+  color: $main-color;
+}
+
+// ページネーション
+.pagination {
+  li {
+    a {
+      color: $main-color;
+      &:hover{
+        color: $main-color; 
+      }
+    }
+  }
+  li.page-item.active {
+    .page-link {
+      border-color: $main-color; 
+      background-color: $main-color;
+    }
+  }
+
 }

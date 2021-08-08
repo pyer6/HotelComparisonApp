@@ -1,0 +1,47 @@
+<div class="text-center mt-5">
+  <%= will_paginate @hotels %>
+</div>
+
+<div>
+  <% @hotels.each do |hotel| %>
+    
+    <div class="card bg-light border-success mb-3">
+      <div class="row g-0">
+        <div class="col-lg-4">
+          <%= link_to image_tag(hotel[:hotel_image_url], class: "img_hotel"), hotel[:information_url], target: :_blank %>
+        </div>
+
+        <div class="col-lg-8">
+          <div class="card-body">
+            <div class="mt-1 mb-2">
+              <h5 class="card-title d-inline title_color"><%= link_to hotel[:name], hotel[:information_url], target: :_blank, class: "no_underline text-success" %></h5>
+              <div id="<%= hotel[:hotel_no] %>", class="float-end">
+                <%= render "hotels/bookmark", hotel: hotel, hotel_no: hotel[:hotel_no] %>
+              </div>
+            </div>
+
+            <div>
+              <%= link_to "施設情報ページ", hotel[:information_url], class: "btn btn-outline-success btn-sm", target: :_blank %>
+              <%= link_to "宿泊プラン一覧ページ", hotel[:plan_list_url], class: "btn btn-outline-success btn-sm", target: :_blank %>
+              <%= link_to hotel[:review_url], class: "btn btn-outline-success btn-sm", target: :_blank do %>
+                お客様の声 <%= hotel[:review_average] %>/5.00 (<%= hotel[:review_count] %>)
+              <% end %>
+            </div>
+            
+            <ul class="list-group list-group-flush mt-2">
+              <li class="list-group-item bg-light small">〒<%= hotel[:postal_code] %> <%= hotel[:address1] %><%= hotel[:address2] %></li>
+              <li class="list-group-item bg-light small">TEL <%= hotel[:telephone_no] %></li>
+              <li class="list-group-item bg-light small">¥ <%= hotel[:hotel_min_charge] %>円〜</li>
+              <li class="list-group-item bg-light small">アクセス : <%= hotel[:access] %></li>
+              <li class="list-group-item bg-light small">駐車場 : <%= hotel[:parking_information] %></li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="mt-3">
+  <%= will_paginate @hotels %>
+</div>

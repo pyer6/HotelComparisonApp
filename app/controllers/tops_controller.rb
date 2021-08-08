@@ -37,10 +37,10 @@ class TopsController < ApplicationController
             address1: hotel[0]["hotelBasicInfo"]["address1"],
             address2: hotel[0]["hotelBasicInfo"]["address2"],
             telephone_no: hotel[0]["hotelBasicInfo"]["telephoneNo"],
-            nearest_station: hotel[0]["hotelBasicInfo"]["nearestStation"],
             parking_information: hotel[0]["hotelBasicInfo"]["parkingInformation"],
             access: hotel[0]["hotelBasicInfo"]["access"].gsub(/　/," "),
             hotel_image_url: hotel[0]["hotelBasicInfo"]["hotelImageUrl"],
+            hotel_min_charge: hotel[0]["hotelBasicInfo"]["hotelMinCharge"],
           }
         end
       end
