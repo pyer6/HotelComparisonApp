@@ -15,8 +15,11 @@
           <div class="card-body">
             <div class="mt-1 mb-2">
               <h5 class="card-title d-inline title_color"><%= link_to hotel[:name], hotel[:information_url], target: :_blank, class: "no_underline text-success" %></h5>
+              
               <div id="<%= hotel[:hotel_no] %>", class="float-end">
-                <%= render "hotels/bookmark", hotel: hotel, hotel_no: hotel[:hotel_no] %>
+                <% if user_signed_in?	%>
+                  <%= render "hotels/bookmark", hotel: hotel, hotel_no: hotel[:hotel_no] %>
+                <% end %>
               </div>
             </div>
 

@@ -1,6 +1,4 @@
 class TopsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
-
   require 'will_paginate/array'
 
   def index

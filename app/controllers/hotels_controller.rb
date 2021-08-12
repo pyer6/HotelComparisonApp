@@ -1,6 +1,8 @@
 class HotelsController < ApplicationController
-  def show
-    @hotels = current_user.hotels.paginate(page: params[:page], per_page: 10)
+  before_action :authenticate_user!
+
+  def index
+    @hotels = current_user.hotels.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
 
   def create

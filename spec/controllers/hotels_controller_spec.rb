@@ -3,8 +3,13 @@ require 'rails_helper'
 RSpec.describe HotelsController, type: :controller do
 
   describe "GET #show" do
+    before do
+      @user = FactoryBot.create(:user_jason)
+    end
+
     it "returns http success" do
-      get :show
+      sign_in @user
+      get :show, params: { id: @user.id }
       expect(response).to have_http_status(:success)
     end
   end
