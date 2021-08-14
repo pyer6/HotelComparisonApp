@@ -25,18 +25,27 @@ RSpec.describe "Tops", type: :system do
         click_button "ログイン"
         expect(page).to have_content "ログインしました。"
   
-        fill_in "keyword", with: "福山"
+        fill_in "keyword", with: "松江"
         click_button "検索"
         first(".no-bookmark").click
+        page.all(".no-bookmark")[1].click
+        page.all(".no-bookmark")[2].click
         
         click_link "ブックマーク"
         expect(current_path).to eq hotels_path
+        sleep 3
+
+        click_link "マップへ"
+        sleep 3
+
+        click_link "ブックマーク"
         sleep 1
-        find(".bookmark").click
+        first(".bookmark").click
+        sleep 1
         
         click_link "ブックマーク"
         expect(current_path).to eq hotels_path
-        sleep 1
+        sleep 2
   
       end
     end
