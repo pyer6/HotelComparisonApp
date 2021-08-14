@@ -25,6 +25,9 @@
             <li class="nav-item">
               <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
             </li>
+            <li class="nav-item">
+              <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'nav-link' %>
+            </li>
           <% end %>
         </ul>
       </div>
