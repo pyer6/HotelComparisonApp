@@ -14,6 +14,7 @@ class TopsController < ApplicationController
       query = {
         "applicationId" => ENV["RAKUTEN_APPID"],
         "formatVersion" => 2,
+        "datumType" => 1,
         "keyword" => params[:keyword],
         "responseType" => "small",
       }
@@ -39,6 +40,8 @@ class TopsController < ApplicationController
             access: hotel[0]["hotelBasicInfo"]["access"].gsub(/　/," "),
             hotel_image_url: hotel[0]["hotelBasicInfo"]["hotelImageUrl"],
             hotel_min_charge: hotel[0]["hotelBasicInfo"]["hotelMinCharge"],
+            latitude: hotel[0]["hotelBasicInfo"]["latitude"],
+            longitude: hotel[0]["hotelBasicInfo"]["longitude"],
           }
         end
       end

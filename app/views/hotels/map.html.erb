@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="col-sm-8 offset-sm-2">
+    <h1 class="text-center my-5">マップ</h1>
+
+    <div id='map'></div>
+
+  </div>
+</div>
+
+
+<script>
+  let map;
+  // 複数表示させるため配列化
+  let marker = [];
+  let infoWindow = [];
+  let markerData = gon.maps;
+
+
+  function initMap(){
+    
+    // マップの作成
+    map = new google.maps.Map(document.getElementById('map'), {
+      // 地図の中心地と縮小度
+      center: {lat: 35.46563495176132, lng: 133.06439840029438},
+      zoom: 12,
+    });
+
+    for (var i = 0; i < markerData.length; i++){
+      let id = markerData[i]["id"]
+
+      // 緯度経度を代入
+      markerLatLng = new google.maps.LatLng(
+        {
+          lat: markerData[i]["latitude"],
+          lng: markerData[i]["longitude"],
+        }
+      );
+
+      // マーカーを挿す位置
+      marker[i] = new google.maps.Marker(
+        {
+          position: markerLatLng,
+          map: map
+        }
+      );
+
+      // 表示するコンテンツ
+      infoWindow[i] = new google.maps.InfoWindow(
+        {
+          content: `<a href=${markerData[i]["information_url"]}  target="_blank">${markerData[i]['name']}</a>`
+        }
+      );
+
+      markerEvent(i);
+      
+    }
+  }
+
+  // クリック時のアクション
+  function markerEvent(i) {
+    // addListener: 特定のイベントが対象に配信されるたびに呼び出される関数
+    // addEventListener(イベントの種類, 関数)
+    marker[i].addListener("click", function() {
+      // open: コンテンツの表示
+      // open(設置する地図, コンテンツ名)
+      infoWindow[i].open(map, marker[i]);
+    })
+  }
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API'] %>&callback=initMap" async defer></script>

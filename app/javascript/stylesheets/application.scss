@@ -3,6 +3,11 @@
 
 $main-color: #28a745;
 
+// ヘッダー
+.text-color{
+  color: $main-color;
+}
+
 // ホテルの画像
 .img_hotel {
   width: 100%;
@@ -41,4 +46,11 @@ $main-color: #28a745;
     }
   }
 
+}
+
+// マップ
+#map {
+  height: 600px;
+  width: auto;
+  text-align: center;
 }

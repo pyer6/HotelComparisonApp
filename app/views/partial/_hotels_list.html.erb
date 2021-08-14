@@ -34,7 +34,9 @@
             <ul class="list-group list-group-flush mt-2">
               <li class="list-group-item bg-light small">〒<%= hotel[:postal_code] %> <%= hotel[:address1] %><%= hotel[:address2] %></li>
               <li class="list-group-item bg-light small">TEL <%= hotel[:telephone_no] %></li>
-              <li class="list-group-item bg-light small">¥ <%= hotel[:hotel_min_charge] %>円〜</li>
+              <li class="list-group-item bg-light small">
+                <%= hotel[:hotel_min_charge] ? "¥ #{hotel[:hotel_min_charge]}円〜" : "記載がありません" %>
+              </li>
               <li class="list-group-item bg-light small">アクセス : <%= hotel[:access] %></li>
               <li class="list-group-item bg-light small">駐車場 : <%= hotel[:parking_information] %></li>
             </ul>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_08_082655) do
+ActiveRecord::Schema.define(version: 2021_08_13_034647) do
 
   create_table "hotels", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2021_08_08_082655) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "hotel_no", null: false
     t.integer "hotel_min_charge"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_hotels_on_user_id"
   end
 

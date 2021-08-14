@@ -1,6 +1,13 @@
 <div class="row">
   <div class="col-sm-8 offset-sm-2">
-  <h1 class="text-center mt-5">ブックマーク</h1>
+    <div class="text-center mt-5 ">
+      <h1 class="d-inline">　　ブックマーク</h1>
 
-  <%= render "partial/hotels_list" %>
+      <div class="float-end">
+        <%= link_to "マップへ",  map_hotels_path, class: "btn btn-outline-success" %>
+      </div>
+    </div>
+
+    <%= render "partial/hotels_list" %>
+  </div>
 </div>
