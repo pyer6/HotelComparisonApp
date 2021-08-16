@@ -9,7 +9,7 @@ RSpec.describe HotelsController, type: :controller do
 
     it "returns http success" do
       sign_in @user
-      get :show, params: { id: @user.id }
+      get :index
       expect(response).to have_http_status(:success)
     end
   end
