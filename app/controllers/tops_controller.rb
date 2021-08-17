@@ -20,6 +20,8 @@ class TopsController < ApplicationController
       }
       response = http_client.get(url, query)
       response = JSON.parse(response.body)
+
+      logger.debug(response)
   
       hotels = []
       if response["hotels"]
@@ -45,6 +47,7 @@ class TopsController < ApplicationController
           }
         end
       end
+
       hotels
     end
 end
