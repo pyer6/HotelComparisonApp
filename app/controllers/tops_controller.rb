@@ -45,6 +45,11 @@ class TopsController < ApplicationController
           }
         end
       end
+
+      puts "================================================================================================="
+      puts hotels
+      logger.debug("---------------------------------------------------------------------------")
+      logger.debug(hotels)
       hotels
     end
 end
